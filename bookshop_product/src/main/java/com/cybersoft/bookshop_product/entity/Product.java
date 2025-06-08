@@ -18,7 +18,7 @@ public class Product {
     private String id;
     private String title;
     private String author;
-    private int review;
+    private int reviews;
     private double price;
     private String images;
     private LocalDateTime createdDate;

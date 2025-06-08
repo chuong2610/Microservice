@@ -1,13 +1,20 @@
 package com.cybersoft.bookshop_product.service.imp;
 
 import com.cybersoft.bookshop_product.dto.ProductDTO;
+import com.cybersoft.bookshop_product.entity.Product;
+import com.cybersoft.bookshop_product.mapper.ProductMapper;
+import com.cybersoft.bookshop_product.repository.ProductRepository;
 import com.cybersoft.bookshop_product.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ProductServiceImp implements ProductService {
+    @Autowired
+    private ProductRepository productRepository;
+
     @Override
     public ProductDTO createProduct(ProductDTO productDTO) {
         return null;
@@ -30,6 +37,10 @@ public class ProductServiceImp implements ProductService {
 
     @Override
     public List<ProductDTO> getAllProducts() {
-        return List.of();
+        return productRepository.findAll().stream()
+                .map( ProductMapper::mapToDTO).toList();
     }
+
+
+
 }
