@@ -2,6 +2,7 @@ package com.cybersoft.bookshop_product.mapper;
 
 import com.cybersoft.bookshop_product.dto.ProductDTO;
 import com.cybersoft.bookshop_product.entity.Product;
+import com.cybersoft.bookshop_product.payload.request.CreateProductRequest;
 
 public class ProductMapper {
     public static ProductDTO mapToDTO(Product product) {
@@ -16,4 +17,5 @@ public class ProductMapper {
         dto.setUpdatedDate(product.getUpdatedDate());
         return dto;
     }
+
 }

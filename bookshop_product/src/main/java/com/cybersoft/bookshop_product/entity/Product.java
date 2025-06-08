@@ -2,6 +2,7 @@ package com.cybersoft.bookshop_product.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,4 +24,12 @@ public class Product {
     private String images;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
+
+    @PrePersist
+    public void onCreate() {
+        this.createdDate = LocalDateTime.now();
+        if (this.id == null) {
+            this.id = java.util.UUID.randomUUID().toString();
+        }
+    }
 }

@@ -19,3 +19,5 @@ spring:
     url: jdbc:mysql://localhost:3307/bookstore
     username: root
     password: chuong0105
+file:
+  path: F:/upload
