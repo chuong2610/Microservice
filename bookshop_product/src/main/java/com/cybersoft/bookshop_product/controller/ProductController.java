@@ -2,6 +2,7 @@ package com.cybersoft.bookshop_product.controller;
 
 import com.cybersoft.bookshop_product.dto.ProductDTO;
 import com.cybersoft.bookshop_product.payload.request.CreateProductRequest;
+import com.cybersoft.bookshop_product.payload.request.SeachProductRequest;
 import com.cybersoft.bookshop_product.payload.response.BaseRespone;
 import com.cybersoft.bookshop_product.service.FileStorageServices;
 import com.cybersoft.bookshop_product.service.ProductService;
@@ -38,5 +39,14 @@ public class ProductController {
         respone.setMessage("Product created successfully");
         respone.setData(productService.createProduct(request));
         return ResponseEntity.status(HttpStatus.CREATED).body(respone);
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<?> searchProducts(SeachProductRequest request) {
+        BaseRespone respone = new BaseRespone();
+        respone.setCode(HttpStatus.OK.value());
+        respone.setMessage("Search results");
+        respone.setData(productService.searchProduct(request).getContent());
+        return ResponseEntity.ok(respone);
     }
 }
