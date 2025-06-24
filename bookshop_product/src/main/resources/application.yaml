@@ -21,3 +21,5 @@ spring:
     password: chuong0105
 file:
   path: F:/upload
+server:
+  port: 8082
