@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: bookshop_gateway
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: bookshop_product
+              uri: http://localhost:8082
+              predicates:
+                - Path=/products/**
+            - id:    bookshop_authentication
+              uri: http://localhost:8083
+              predicates:
+                - Path=/auth/**
+server:
+  port: 9090
