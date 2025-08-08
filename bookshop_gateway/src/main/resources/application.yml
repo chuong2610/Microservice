@@ -1,18 +1,22 @@
 spring:
   application:
-    name: bookshop_gateway
+    name: bookshop-gateway
   cloud:
     gateway:
       server:
         webmvc:
           routes:
-            - id: bookshop_product
-              uri: http://localhost:8082
-              predicates:
-                - Path=/products/**
+#            - id: bookshop_product
+#              uri: lb://product-service
+#              predicates:
+#                - Path=/products/**
             - id:    bookshop_authentication
-              uri: http://localhost:8083
+              uri: lb://authentication-service
               predicates:
                 - Path=/auth/**
 server:
   port: 9090
+eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/

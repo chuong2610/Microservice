@@ -22,7 +22,7 @@ public class SecurityConfig {
             .csrf(AbstractHttpConfigurer::disable) // Disable CSRF protection for simplicity
             .cors(AbstractHttpConfigurer::disable) // Disable CORS for simplicity
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/sign-in").permitAll() // Allow public access to sign-in endpoint
+                .requestMatchers("/auth/*").permitAll() // Allow public access to sign-in endpoint
                 .anyRequest().authenticated() // Require authentication for all other requests
             );
         return http.build();

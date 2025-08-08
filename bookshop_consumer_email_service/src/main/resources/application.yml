@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: bookshop_consumer_email_service
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: chauhieunhan2004@gmail.com
+    password: pvyrqcpwgdbuqzcu
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.ssl.trust: smtp.gmail.com
+
+  kafka:
+    bootstrap-servers: localhost:909
+    consumer:
+      group-id: bookshop-consumer-email-service
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: bookshop_eureka_server
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+server:
+  port: 8761

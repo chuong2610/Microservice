@@ -13,7 +13,7 @@ public class ProductDTO {
     private String author;
     private int review;
     private double price;
-    private String images;
+    private String image;
     private LocalDateTime createdDate;
     private LocalDateTime updatedDate;
 
